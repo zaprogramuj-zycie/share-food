@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fe7f6e6-0b4d-4e94-86bc-e6178dd6a22f" name="Default Changelist" comment="" />
+    <list default="true" id="4fe7f6e6-0b4d-4e94-86bc-e6178dd6a22f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +55,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600329077842</updated>
-      <workItem from="1600329079666" duration="3912000" />
+      <workItem from="1600329079666" duration="4266000" />
     </task>
     <task id="LOCAL-00001" summary="The project was created and added">
       <created>1600333157154</created>
@@ -61,7 +64,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600333157154</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="The .gitignore has been changed">
+      <created>1600333688419</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600333688419</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -69,13 +79,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="The project was created and added" />
-    <option name="LAST_COMMIT_MESSAGE" value="The project was created and added" />
+    <MESSAGE value="The .gitignore has been changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="The .gitignore has been changed" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="486" y="97" key="CommitChangelistDialog2" timestamp="1600333156250">
+    <state x="486" y="97" key="CommitChangelistDialog2" timestamp="1600333687605">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="486" y="97" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600333156250" />
+    <state x="486" y="97" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600333687605" />
     <state x="726" y="387" key="Github.CreatePullRequestDialog" timestamp="1600331314176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -120,10 +131,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" width="916" height="710" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600331060364" />
-    <state x="560" y="316" key="Vcs.Push.Dialog.v2" timestamp="1600333349284">
+    <state x="560" y="316" key="Vcs.Push.Dialog.v2" timestamp="1600333702180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="316" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600333349284" />
+    <state x="560" y="316" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600333702180" />
     <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600333029872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
