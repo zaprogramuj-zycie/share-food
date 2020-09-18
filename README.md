@@ -10,6 +10,7 @@ Project is created with:
 * MySQL
 * Maven
 * Thymeleaf
+* JUnit
 
 ### Features
 _ _ _
@@ -34,7 +35,12 @@ _ _ _
 Clone this repo to your desktop. Run applications using Spring Boot.
 You will then be able to access it at localhost:8080.
 
-##### Status
+##### Tests
+_ _ _
+We can run the tests directly from the IDE, if you are using IntelliJ it in the code view, next to the class name or method name, on the left side there will be a small green arrow.
+Clicking on it will show a menu from which you can select Run or Debug Test. If you have performed a test before and for some reason failed, the arrow will be red with an exclamation mark.
+
+###### Status
 _ _ _
 Project is in progress with some active features and another improvements to make.
 
