@@ -5,12 +5,13 @@ Application with interactive map to pin markers in places where you can share fo
 - - -
 Project is created with:
 * Java 8
-* Spring Boot
-* Hibernate
-* MySQL
+* Spring Boot 
+* Hibernate 5.4.20 Final
+* MySQL 8.0.21
 * Maven
 * Thymeleaf
 * JUnit
+* Lombok 1.18.12
 
 ### Features
 _ _ _
