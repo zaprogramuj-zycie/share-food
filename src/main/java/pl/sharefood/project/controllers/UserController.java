@@ -11,17 +11,17 @@ import java.util.List;
 @RequestMapping("/v1/users")
 public class UserController {
 
-  @Autowired
-  private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-  @PostMapping
-  public User addUser(@RequestBody User user) {
-    userRepository.save(user);
-    return user;
-  }
+    @PostMapping
+    public User addUser(@RequestBody User user) {
+        userRepository.save(user);
+        return user;
+    }
 
-  @GetMapping
-  public List<User> getAllUsers() {
-    return userRepository.findAll();
-  }
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
 }

@@ -1,24 +1,23 @@
 package pl.sharefood.project.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Data
+@Entity
+@Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 public class PlaceType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String key;
+    private String key_;
     private String symbol;
 
     @CreatedDate
@@ -27,5 +26,4 @@ public class PlaceType {
     private Date updatedAt;
     @Column(nullable = true)
     private Date deletedAt;
-
 }

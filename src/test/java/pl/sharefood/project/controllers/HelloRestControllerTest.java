@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HelloControllerTest {
+class HelloRestControllerTest {
 
     @Test
     void sayHello() {
-        HelloController controller = new HelloController();
-        String response = controller.hello("World");
+        HelloRestController controller = new HelloRestController();
+        String response = controller.get("World");
         assertEquals("Hello,World", response);
     }
 }
