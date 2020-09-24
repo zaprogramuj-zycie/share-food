@@ -5,25 +5,28 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class PlaceType {
 
-    @ManyToOne
-    @JoinColumn(name = "type_id", nullable = false)
-    private Place place;
+public class Place {
+
+   @OneToMany(mappedBy = "place")
+   private Set<PlaceType> placeTypeSet;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String key_;
-    private String symbol;
+    private Float longitude;
+    private Float latitude;
+    private Long type_id;
 
     @CreatedDate
     private Date createdAt;
@@ -31,6 +34,4 @@ public class PlaceType {
     private Date updatedAt;
     @Column(nullable = true)
     private Date deletedAt;
-
-
 }
