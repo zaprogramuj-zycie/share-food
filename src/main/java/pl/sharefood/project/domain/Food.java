@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -26,21 +25,21 @@ public class Food {
   private Date updatedAt;
   private Date deletedAt;
 
-  @ManyToMany(cascade = CascadeType.ALL)
+  @ManyToMany
   @JoinTable(name = "food_place",
           joinColumns = {@JoinColumn(name = "food_id")},
           inverseJoinColumns = {@JoinColumn(name = "place_id")})
-  private Set<Place> places = new HashSet<>();
+  private Set<Place> places;
 
-  @ManyToMany(cascade = CascadeType.ALL)
-  @JoinTable(name = "food_category",
+  @ManyToMany
+  @JoinTable(name = "food_categories",
           joinColumns = {@JoinColumn(name = "food_id")},
           inverseJoinColumns = {@JoinColumn(name = "category_id")})
-  private Set<FoodCategory> foodCategories = new HashSet<>();
+  private Set<FoodCategory> foodCategories;
 
-  @ManyToMany(cascade = CascadeType.ALL)
-  @JoinTable(name = "user_food",
+  @ManyToMany
+  @JoinTable(name = "food_user",
           joinColumns = {@JoinColumn(name = "food_id")},
           inverseJoinColumns = {@JoinColumn(name = "user_id")})
-  private Set<User> users = new HashSet<>();
+  private Set<User> users;
 }

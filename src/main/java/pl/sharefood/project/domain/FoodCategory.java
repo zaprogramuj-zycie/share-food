@@ -8,6 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,12 +17,14 @@ import java.util.Date;
 @AllArgsConstructor
 public class FoodCategory {
 
+    @ManyToMany(mappedBy = "foodCategories")
+    private Set<Food> foods;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String key_;
-
 
     @CreatedDate
     private Date createdAt;
