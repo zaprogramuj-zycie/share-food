@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,26 +22,25 @@ public class Food {
   private String name;
   private Integer amount;
   private Date expireAt;
+  private Date createdAt;
+  private Date updatedAt;
+  private Date deletedAt;
 
-//  @ManyToMany(cascade = CascadeType.ALL)
-//  @JoinTable(name = "food_place",
-//          joinColumns = {@JoinColumn(name = "food_id")},
-//          inverseJoinColumns = {@JoinColumn(name = "place_id")})
-//  private Set<Place> places = new HashSet<>();
+  @ManyToMany(cascade = CascadeType.ALL)
+  @JoinTable(name = "food_place",
+          joinColumns = {@JoinColumn(name = "food_id")},
+          inverseJoinColumns = {@JoinColumn(name = "place_id")})
+  private Set<Place> places = new HashSet<>();
 
-//  @ManyToMany(cascade = CascadeType.ALL)
-//  @JoinTable(name = "food_category",
-//          joinColumns = {@JoinColumn(name = "food_id")},
-//          inverseJoinColumns = {@JoinColumn(name = "category_id")})
-//  private Set<FoodCategory> foodCategories = new HashSet<>();
+  @ManyToMany(cascade = CascadeType.ALL)
+  @JoinTable(name = "food_category",
+          joinColumns = {@JoinColumn(name = "food_id")},
+          inverseJoinColumns = {@JoinColumn(name = "category_id")})
+  private Set<FoodCategory> foodCategories = new HashSet<>();
 
   @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(name = "user_food",
           joinColumns = {@JoinColumn(name = "food_id")},
           inverseJoinColumns = {@JoinColumn(name = "user_id")})
-  private Set<User> users;
-
-  private Date createdAt;
-  private Date updatedAt;
-  private Date deletedAt;
+  private Set<User> users = new HashSet<>();
 }
