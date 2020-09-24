@@ -1,6 +1,9 @@
 package pl.sharefood.project.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -11,19 +14,14 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class PlaceType {
-
-    @ManyToOne
-    @JoinColumn(name = "type_id", nullable = false)
-    private Place place;
+public class FoodCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String key_;
-    private String symbol;
+
 
     @CreatedDate
     private Date createdAt;
@@ -31,6 +29,4 @@ public class PlaceType {
     private Date updatedAt;
     @Column(nullable = true)
     private Date deletedAt;
-
-
 }
