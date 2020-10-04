@@ -8,7 +8,7 @@ import pl.zz.sharefood.repository.UserRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/users")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired

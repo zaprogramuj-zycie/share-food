@@ -1,4 +1,4 @@
-INSERT INTO user (id, name, email) values (0, 'Test 1','test1@example.com');
+INSERT INTO user (name, email) values ('Test 1','test1@example.com');
 
 
 

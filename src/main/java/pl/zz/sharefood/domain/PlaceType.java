@@ -11,15 +11,10 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class PlaceType {
 
-    @ManyToOne
-    @JoinColumn(name = "type_id", nullable = false)
-    private Place place;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String key_;
@@ -27,10 +22,6 @@ public class PlaceType {
 
     @CreatedDate
     private Date createdAt;
-    @Column(nullable = true)
     private Date updatedAt;
-    @Column(nullable = true)
     private Date deletedAt;
-
-
 }

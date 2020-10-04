@@ -1,4 +1,4 @@
-package pl.sharefood.project.domain;
+package pl.zz.sharefood.domain;
 
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,21 +15,19 @@ import java.util.Set;
 @AllArgsConstructor
 public class Place {
 
-   @OneToMany(mappedBy = "place")
-   private Set<PlaceType> placeTypeSet;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Float longitude;
     private Float latitude;
-    private Long type_id;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id", nullable = false)
+    private PlaceType placeType;
 
     @CreatedDate
     private Date createdAt;
-    @Column(nullable = true)
     private Date updatedAt;
-    @Column(nullable = true)
     private Date deletedAt;
 }

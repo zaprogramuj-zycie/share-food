@@ -2,26 +2,26 @@ package pl.zz.sharefood.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.zz.sharefood.domain.User;
+import pl.zz.sharefood.domain.Food;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface FoodRepository extends JpaRepository<Food, Long> {
 
     @Override
-    User save(User user);
+    Food save(Food food);
 
     @Override
-    List<User> findAll();
+    List<Food> findAll();
 
     @Override
-    Optional<User> findById(Long id);
-
-    @Override
-    void deleteAll();
+    Optional<Food> findById(Long id);
 
     @Override
     void deleteById(Long id);
+
+    @Override
+    void deleteAll();
 }

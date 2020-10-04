@@ -1,4 +1,4 @@
-package pl.sharefood.project.domain;
+package pl.zz.sharefood.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,19 +17,17 @@ import java.util.Set;
 @AllArgsConstructor
 public class FoodCategory {
 
-    @ManyToMany(mappedBy = "foodCategories")
-    private Set<Food> foods;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String key_;
 
+    @ManyToMany(mappedBy = "foodCategories")
+    private Set<Food> foods;
+
     @CreatedDate
     private Date createdAt;
-    @Column(nullable = true)
     private Date updatedAt;
-    @Column(nullable = true)
     private Date deletedAt;
 }
