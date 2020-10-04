@@ -13,8 +13,6 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-
 public class Place {
 
    @OneToMany(mappedBy = "place")
