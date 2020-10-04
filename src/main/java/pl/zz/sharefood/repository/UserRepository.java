@@ -1,8 +1,8 @@
-package pl.sharefood.project.repository;
+package pl.zz.sharefood.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.sharefood.project.domain.User;
+import pl.zz.sharefood.domain.User;
 
 import java.util.List;
 import java.util.Optional;

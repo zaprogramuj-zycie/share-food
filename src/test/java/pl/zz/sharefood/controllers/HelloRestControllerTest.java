@@ -1,4 +1,4 @@
-package pl.sharefood.project.controllers;
+package pl.zz.sharefood.controllers;
 
 import org.junit.jupiter.api.Test;
 

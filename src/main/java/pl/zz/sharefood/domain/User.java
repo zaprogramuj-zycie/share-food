@@ -1,4 +1,4 @@
-package pl.sharefood.project.domain;
+package pl.zz.sharefood.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
