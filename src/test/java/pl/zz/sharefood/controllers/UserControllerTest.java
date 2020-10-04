@@ -1,9 +1,9 @@
-package pl.sharefood.project.controllers;
+package pl.zz.sharefood.controllers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.sharefood.project.repository.UserRepository;
+import pl.zz.sharefood.repository.UserRepository;
 
 @SpringBootTest
 class UserControllerTest {
