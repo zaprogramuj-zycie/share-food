@@ -20,6 +20,7 @@ public class PlaceType {
     private String key_;
     private String symbol;
 
+
     @CreatedDate
     private Date createdAt;
     private Date updatedAt;

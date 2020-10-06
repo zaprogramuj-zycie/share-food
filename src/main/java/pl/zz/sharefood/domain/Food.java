@@ -17,33 +17,29 @@ import java.util.Set;
 @AllArgsConstructor
 public class Food {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private Integer amount;
-    private Date expireAt;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  private String name;
+  private Integer amount;
+  private Date expireAt;
 
-    @ManyToMany
-    @JoinTable(name = "foods_places",
-            joinColumns = {@JoinColumn(name = "food_id")},
-            inverseJoinColumns = {@JoinColumn(name = "place_id")})
-    private Set<Place> places;
+  @ManyToOne
+  @JoinColumn(name = "place_id")
+  private Place place;
 
-    @ManyToMany
-    @JoinTable(name = "foods_categories",
-            joinColumns = {@JoinColumn(name = "food_id")},
-            inverseJoinColumns = {@JoinColumn(name = "category_id")})
-    private Set<FoodCategory> foodCategories;
+  @ManyToMany
+  @JoinTable(name = "foods_categories",
+          joinColumns = {@JoinColumn(name = "food_id")},
+          inverseJoinColumns = {@JoinColumn(name = "category_id")})
+  private Set<FoodCategory> foodCategories;
 
-    @ManyToMany
-    @JoinTable(name = "foods_users",
-            joinColumns = {@JoinColumn(name = "food_id")},
-            inverseJoinColumns = {@JoinColumn(name = "user_id")})
-    private Set<User> users;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
-    @CreatedDate
-    private Date createdAt;
-    private Date updatedAt;
-    private Date deletedAt;
+  @CreatedDate
+  private Date createdAt;
+  private Date updatedAt;
+  private Date deletedAt;
 }

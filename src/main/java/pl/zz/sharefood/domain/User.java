@@ -24,8 +24,8 @@ public class User {
     private String name;
     private String email;
 
-    @ManyToMany(mappedBy = "users")
-    private Set<Food> foods = new HashSet<>();
+    @OneToMany(mappedBy = "user")
+    private Set<Food> foods;
 
     @CreatedDate
     private Date createdAt;
