@@ -1,29 +1,28 @@
 package pl.zz.sharefood.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.zz.sharefood.domain.Food;
 import pl.zz.sharefood.repository.FoodRepository;
+import pl.zz.sharefood.service.FoodService;
 import pl.zz.sharefood.service.FoodDeleteService;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/food")
 public class FoodController {
 
-    @Autowired
-    private FoodRepository foodRepository;
+
+    private final FoodRepository foodRepository;
+
+    private final FoodService foodService;
 
     final private FoodDeleteService foodDeleteService;
-
-    FoodController(FoodDeleteService foodDeleteService){
-        this.foodDeleteService =foodDeleteService;
-    }
-
-
+    
     @GetMapping
     public List<Food> getAllFood() {
         return foodRepository.findAll();
@@ -31,8 +30,7 @@ public class FoodController {
 
     @PostMapping
     public Food addFood(@RequestBody Food food) {
-        foodRepository.save(food);
-        return food;
+       return foodService.save(food);
     }
 
     @DeleteMapping("/{id}")

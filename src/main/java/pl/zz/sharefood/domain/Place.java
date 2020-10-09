@@ -26,6 +26,9 @@ public class Place {
     @JoinColumn(name = "type_id", nullable = false)
     private PlaceType placeType;
 
+    @OneToMany(mappedBy = "place")
+    private Set<Food> foods;
+
     @CreatedDate
     private Date createdAt;
     private Date updatedAt;
