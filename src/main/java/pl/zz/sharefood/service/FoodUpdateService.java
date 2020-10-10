@@ -1,5 +1,6 @@
 package pl.zz.sharefood.service;
 
+import java.util.Date;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.zz.sharefood.domain.Food;
@@ -12,13 +13,13 @@ public class FoodUpdateService {
   private final FoodRepository foodRepository;
 
   public Food updateFood(Food newFood, Long id) {
+    Date actualDate = new Date();
     return foodRepository.findById(id)
         .map(food -> {
-          food.setId(newFood.getId());
           food.setName(newFood.getName());
           food.setAmount(newFood.getAmount());
           food.setExpireAt(newFood.getExpireAt());
-          food.setUpdatedAt(newFood.getUpdatedAt());
+          food.setUpdatedAt(actualDate);
           return foodRepository.save(food);
         }).orElseGet(() -> {
           newFood.setId(id);
