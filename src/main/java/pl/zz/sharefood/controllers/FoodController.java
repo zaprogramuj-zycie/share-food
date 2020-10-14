@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import pl.zz.sharefood.domain.Food;
+import pl.zz.sharefood.domain.FoodDto;
 import pl.zz.sharefood.repository.FoodRepository;
 import pl.zz.sharefood.service.FoodDeleteService;
 import pl.zz.sharefood.service.FoodService;
@@ -25,11 +26,8 @@ import pl.zz.sharefood.service.FoodUpdateService;
 public class FoodController {
 
   private final FoodRepository foodRepository;
-
   private final FoodService foodService;
-
   private final FoodDeleteService foodDeleteService;
-
   private final FoodUpdateService foodUpdateService;
 
   @GetMapping
@@ -42,11 +40,11 @@ public class FoodController {
     return foodService.save(food);
   }
 
-  @PutMapping("/{id}")
-  public Food updateFood(@RequestBody Food food, @PathVariable Long id) {
-    return foodUpdateService.updateFood(food, id);
+  @PutMapping
+  @ResponseStatus(HttpStatus.OK)
+  public FoodDto updateFood(@RequestBody Food food) {
+    return foodUpdateService.updateFood(food);
   }
-
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
