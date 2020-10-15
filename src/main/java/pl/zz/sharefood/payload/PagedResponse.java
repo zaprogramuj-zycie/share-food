@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PagedResponse<T> {
 
-    private List<T> content;
+    private List<T> data;
 
     private int page;
 

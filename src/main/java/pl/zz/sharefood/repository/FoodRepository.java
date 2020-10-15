@@ -6,12 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import pl.zz.sharefood.domain.Food;
 
-import java.util.List;
-
-
 @Repository
 public interface FoodRepository extends JpaRepository<Food, Long> {
 
-    Page<Food> findByNameIn(List<String> foodName, Pageable pageable);
+    Page<Food> findAll(Pageable pageable);
 
 }
