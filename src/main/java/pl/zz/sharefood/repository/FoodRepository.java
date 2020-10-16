@@ -9,6 +9,6 @@ import pl.zz.sharefood.domain.Food;
 @Repository
 public interface FoodRepository extends JpaRepository<Food, Long> {
 
-    Page<Food> findAll(Pageable pageable);
+  Page<Food> findAll(Pageable pageable);
 
 }

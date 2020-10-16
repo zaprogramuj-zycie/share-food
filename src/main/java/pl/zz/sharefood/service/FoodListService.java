@@ -1,5 +1,7 @@
 package pl.zz.sharefood.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -13,32 +15,29 @@ import pl.zz.sharefood.payload.PagedResponse;
 import pl.zz.sharefood.repository.FoodRepository;
 import pl.zz.sharefood.requests.ListPageRequest;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class FoodListService {
 
-    private final FoodRepository foodRepository;
-    
-    public PagedResponse<?> execute(ListPageRequest listPageRequest){
+  private final FoodRepository foodRepository;
 
-        Pageable pageable = PageRequest.of(listPageRequest.getSize(), listPageRequest.getPage());
+  public PagedResponse<?> execute(ListPageRequest listPageRequest) {
 
-        Page<Food> listFood = foodRepository.findAll(pageable);
+    Pageable pageable = PageRequest.of(listPageRequest.getSize(), listPageRequest.getPage());
 
-        List<FoodDto> listFoodDto= mapFoodToDto(listFood);
+    Page<Food> listFood = foodRepository.findAll(pageable);
 
-        return PagedResponseBuilder.create()
-            .listFoodDto(listFoodDto)
-            .foodEntityPage(listFood)
-            .build();
-    }
+    List<FoodDto> listFoodDto = mapFoodToDto(listFood);
 
-    public List<FoodDto> mapFoodToDto (Page<Food> listFood ) {
-        List<FoodDto> listFoodDto = new ArrayList<>();
-        BeanUtils.copyProperties(listFoodDto, listFood.getContent());
-        return listFoodDto;
-    }
+    return PagedResponseBuilder.create()
+        .listFoodDto(listFoodDto)
+        .foodEntityPage(listFood)
+        .build();
+  }
+
+  public List<FoodDto> mapFoodToDto(Page<Food> listFood) {
+    List<FoodDto> listFoodDto = new ArrayList<>();
+    BeanUtils.copyProperties(listFoodDto, listFood.getContent());
+    return listFoodDto;
+  }
 }
