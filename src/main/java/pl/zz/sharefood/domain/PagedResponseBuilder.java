@@ -27,7 +27,7 @@ public class PagedResponseBuilder {
     return this;
   }
 
-  public PagedResponse build() {
+  public PagedResponse<?> build() {
     return new PagedResponse<>(
         listFoodDto,
         foodEntityPage.getNumber(),
