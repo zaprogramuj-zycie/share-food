@@ -30,6 +30,11 @@ _ _ _
       - vege
       - vegan
       - sweets
+
+#### REST API Documentation
+http://localhost:8080/swagger-ui.html
+
+
       
 #### Setup
 _ _ _
