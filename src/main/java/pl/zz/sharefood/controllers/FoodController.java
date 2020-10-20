@@ -21,8 +21,8 @@ import pl.zz.sharefood.service.FoodService;
 import pl.zz.sharefood.service.FoodUpdateService;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/food")
+@RequiredArgsConstructor
 public class FoodController {
 
   private final FoodRepository foodRepository;
@@ -31,15 +31,15 @@ public class FoodController {
   private final FoodUpdateService foodUpdateService;
 
   @GetMapping
-  public List<Food> getAllFood() {
-    return foodRepository.findAll();
+  public PagedResponse<?> getAllFood(@RequestParam ListPageRequest listPageRequest) {
+    return foodListService.execute(listPageRequest);
   }
 
   @PostMapping
   public Food addFood(@RequestBody Food food) {
     return foodService.save(food);
   }
-
+  
   @PutMapping
   @ResponseStatus(HttpStatus.OK)
   public FoodDto updateFood(@RequestBody Food food) {

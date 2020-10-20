@@ -1,0 +1,70 @@
+package pl.zz.sharefood.service;
+
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import pl.zz.sharefood.domain.Food;
+import pl.zz.sharefood.domain.dto.FoodDto;
+import pl.zz.sharefood.repository.FoodRepository;
+import org.springframework.data.domain.PageImpl;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ExtendWith(MockitoExtension.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class FoodListServiceTest {
+
+    @Spy
+    FoodRepository foodRepository;
+    @InjectMocks
+    FoodListService foodListService;
+
+
+    Food food;
+    Food mockFood;
+
+    private List<String> foodList = new ArrayList<>();
+    private List<FoodDto> foodOutput = new ArrayList<>();
+
+    private int page = 0;
+    private int size = 8;
+
+    private Pageable pageable = PageRequest.of(page, size);
+    private PageImpl<FoodDto> pageContain = new PageImpl<>(foodOutput, pageable, 1);
+
+
+    @BeforeEach
+    public void initializeList() {
+        foodList = new ArrayList<>();
+        foodOutput = new ArrayList<>();
+    }
+
+    @BeforeAll
+    public void setUp() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        MockitoAnnotations.initMocks(this);
+
+        Food food;
+
+        food = Food.builder()
+                .id(1L)
+                .name("Apple")
+                .amount(6).build();
+
+        mockFood = food.getClass().getConstructor().newInstance();
+
+        Mockito.when(foodRepository.save(food)).thenReturn(mockFood);
+    }
+}
