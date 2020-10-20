@@ -17,7 +17,6 @@ public class FoodUpdateService {
   private final FoodMapper foodMapper;
 
   public FoodDto updateFood(Food foodToUpdate) {
-
     if (foodToUpdate.getId() != null) {
       Food food = foodRepository.findById(foodToUpdate.getId())
           .orElseThrow(() -> new ResourceNotFoundException(
