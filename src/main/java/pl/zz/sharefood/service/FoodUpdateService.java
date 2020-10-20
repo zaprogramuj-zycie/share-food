@@ -21,7 +21,6 @@ public class FoodUpdateService {
           .orElseThrow(() -> new ResourceNotFoundException("Not found"));
       updateFoodValues(toUpdateFood, food);
       return mapToDto(toUpdateFood);
-
     }
     throw new ResourceNotFoundException("Not found");
   }
