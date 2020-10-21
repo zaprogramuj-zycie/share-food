@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.zz.sharefood.domain.User;
 import pl.zz.sharefood.domain.dto.UserDto;
-import pl.zz.sharefood.mapper.UserMapper;
 import pl.zz.sharefood.repository.UserRepository;
 import pl.zz.sharefood.service.UserService;
 
@@ -20,7 +19,7 @@ public class UserController {
 
     private final UserService userService;
 
-    private final UserMapper userMapper;
+
 
 /*    @PostMapping
     public User addUser(@RequestBody User user) {
@@ -31,7 +30,7 @@ public class UserController {
 
     @PostMapping
     public UserDto saveUser(@RequestBody UserDto userDto) {
-        return userMapper.userToUserDto(userService.save(userMapper.userDtoToUser(userDto)));
+        return userService.save(userDto);
     }
 
 

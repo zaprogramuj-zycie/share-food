@@ -1,8 +1,8 @@
 package pl.zz.sharefood.service;
 
-import pl.zz.sharefood.domain.User;
+import pl.zz.sharefood.domain.dto.UserDto;
 
 public interface UserService {
 
-    User save(User user);
+    UserDto save(UserDto userDto);
 }
