@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zz.sharefood.domain.Food;
 import pl.zz.sharefood.repository.FoodRepository;
+import pl.zz.sharefood.service.impl.FoodServiceImpl;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
