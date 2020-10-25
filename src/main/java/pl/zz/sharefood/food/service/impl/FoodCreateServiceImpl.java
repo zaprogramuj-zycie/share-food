@@ -1,19 +1,21 @@
 package pl.zz.sharefood.food.service.impl;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.zz.sharefood.food.domain.Food;
+import pl.zz.sharefood.food.dto.FoodBaseDto;
+import pl.zz.sharefood.food.mapper.FoodMapper;
 import pl.zz.sharefood.food.repository.FoodRepository;
 import pl.zz.sharefood.food.service.FoodCreateService;
-
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class FoodCreateServiceImpl implements FoodCreateService {
 
     private final FoodRepository foodRepository;
 
+    private final FoodMapper foodMapper;
+
     @Override
-    public Food save(Food food) {
-      return foodRepository.save(food);
+    public FoodBaseDto save(FoodBaseDto foodBaseDto) {
+        return foodMapper.foodToFoodBaseDto(foodRepository.save(foodMapper.foodBaseDtoToFood(foodBaseDto)));
     }
 }

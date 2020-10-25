@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import pl.zz.sharefood.food.domain.Food;
+import pl.zz.sharefood.food.dto.FoodBaseDto;
 import pl.zz.sharefood.food.dto.FoodDto;
 import pl.zz.sharefood.common.dto.PagedResponseDto;
 import pl.zz.sharefood.common.request.ListPageRequest;
@@ -38,8 +39,8 @@ public class FoodController {
   }
 
   @PostMapping
-  public Food createFood(@RequestBody Food food) {
-    return foodCreateService.save(food);
+  public FoodBaseDto createFood(@RequestBody FoodBaseDto foodBaseDto) {
+    return foodCreateService.save(foodBaseDto);
   }
 
   @PutMapping

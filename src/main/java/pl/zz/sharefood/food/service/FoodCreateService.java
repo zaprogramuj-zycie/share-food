@@ -1,8 +1,8 @@
 package pl.zz.sharefood.food.service;
 
-import pl.zz.sharefood.food.domain.Food;
+import pl.zz.sharefood.food.dto.FoodBaseDto;
 
 public interface FoodCreateService {
 
-    Food save(Food food);
+    FoodBaseDto save(FoodBaseDto foodBaseDto);
 }
