@@ -20,7 +20,7 @@ public class UserDto {
     private String name;
     @Email(message = "Invalid email")
     private String email;
-    @Length(min = 8, max = 255, message = "Invalid length password")
-    @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>]-).{6,15}")
+    @Length(min = 6, max = 15, message = "Invalid length password")
+    @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>-]).{6,15}")
     private String password;
 }
