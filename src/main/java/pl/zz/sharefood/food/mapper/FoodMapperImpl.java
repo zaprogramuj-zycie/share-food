@@ -1,11 +1,11 @@
-package pl.zz.sharefood.food.mapper.impl;
+package pl.zz.sharefood.food.mapper;
 
 import org.springframework.stereotype.Component;
 import pl.zz.sharefood.food.domain.Food;
 import pl.zz.sharefood.food.dto.FoodBaseDto;
 
 @Component
-public class FoodMapper implements pl.zz.sharefood.food.mapper.FoodMapper {
+public class FoodMapperImpl implements FoodMapper {
 
     @Override
     public Food foodBaseDtoToFood(FoodBaseDto foodBaseDto) {
