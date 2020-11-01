@@ -1,6 +1,7 @@
 package pl.zz.sharefood.user.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.zz.sharefood.user.domain.User;
 import pl.zz.sharefood.user.dto.UserDto;
@@ -17,7 +18,7 @@ public class UserController {
     private final UserCreateService userCreateService;
     private final UserRepository userRepository;
 
-    @PostMapping
+    @PostMapping("/registration")
     public UserDto createUser(@RequestBody UserDto userDto) {
         return userCreateService.save(userDto);
     }
@@ -26,4 +27,6 @@ public class UserController {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+
 }
