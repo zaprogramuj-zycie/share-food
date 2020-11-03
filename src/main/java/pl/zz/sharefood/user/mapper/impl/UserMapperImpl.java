@@ -14,7 +14,10 @@ public class UserMapperImpl implements UserMapper {
                 .email(userDto.getEmail())
                 .name(userDto.getName())
                 .id(userDto.getId())
+                .firstname(userDto.getFirstname())
+                .lastname(userDto.getLastname())
                 .password(userDto.getPassword())
+                .createdAt(userDto.getCreatedAt())
                 .build();
     }
 
@@ -23,7 +26,10 @@ public class UserMapperImpl implements UserMapper {
         return UserDto.builder()
                 .email(user.getEmail())
                 .id(user.getId())
+                .firstname(user.getFirstname())
+                .lastname(user.getLastname())
                 .name(user.getName())
+                .createdAt(user.getCreatedAt())
                 .build();
     }
 }

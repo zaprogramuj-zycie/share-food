@@ -17,10 +17,12 @@ public class UserDto {
 
   private Long id;
   private String name;
+  private String firstname;
+  private String lastname;
   @Email(message = "Invalid email")
   private String email;
   @Length(min = 6, max = 15, message = "Invalid length password")
   @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>]-).{6,15}")
   private String password;
-  private Date createdAt = new Date();
+  private Date createdAt;
 }

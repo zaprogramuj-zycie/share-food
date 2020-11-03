@@ -1,5 +1,6 @@
 package pl.zz.sharefood.user.service.impl;
 
+import java.util.Date;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ public class UserCreateServiceImpl implements UserCreateService {
   @Override
   public UserDto save(UserDto userDto) {
     userDto.setPassword(encoder.encode(userDto.getPassword()));
+    userDto.setCreatedAt(new Date());
     return userMapper.userToUserDto(userRepository.save(userMapper.userDtoToUser(userDto)));
   }
 
