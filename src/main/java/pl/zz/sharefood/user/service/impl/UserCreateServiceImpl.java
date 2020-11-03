@@ -1,6 +1,7 @@
 package pl.zz.sharefood.user.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.zz.sharefood.user.dto.UserDto;
 import pl.zz.sharefood.user.mapper.UserMapper;
@@ -11,13 +12,15 @@ import pl.zz.sharefood.user.service.UserCreateService;
 @Service
 public class UserCreateServiceImpl implements UserCreateService {
 
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
+  private final UserMapper userMapper;
+  private final BCryptPasswordEncoder encoder;
 
-    private  final UserMapper userMapper;
 
+  @Override
+  public UserDto save(UserDto userDto) {
+    userDto.setPassword(encoder.encode(userDto.getPassword()));
+    return userMapper.userToUserDto(userRepository.save(userMapper.userDtoToUser(userDto)));
+  }
 
-    @Override
-    public UserDto save(UserDto userDto) {
-        return userMapper.userToUserDto(userRepository.save(userMapper.userDtoToUser(userDto)));
-    }
 }
