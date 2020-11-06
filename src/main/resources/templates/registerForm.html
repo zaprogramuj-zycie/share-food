@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>User Registration</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+
 </head>
 <body>
 <div align="center">
     <h1>User Registration</h1>
     <form action="#" th:action="@{/register}" method="post" th:object="${user}">
-        <label>Name:</label>
-        <input type="text" th:field="*{name}" /><br/>
+        <div class="name">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="email" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+        </div>
 
-        <label>E-mail:</label>
-        <input type="text" th:field="*{email}" /><br/>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
 
-        <label>Password:</label>
-        <input type="password" th:field="*{password}" /><br/>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
 
-        <button type="submit">Register</button>
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
 </div>
 </body>
