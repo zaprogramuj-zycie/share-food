@@ -18,7 +18,7 @@ public class UserController {
     private final UserCreateService userCreateService;
     private final UserRepository userRepository;
 
-    @PostMapping("/registration")
+    @PostMapping("/register")
     public UserDto createUser(@RequestBody UserDto userDto) {
         return userCreateService.save(userDto);
     }

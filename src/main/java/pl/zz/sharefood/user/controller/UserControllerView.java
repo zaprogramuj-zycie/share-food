@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import pl.zz.sharefood.user.domain.User;
 
 @Controller
-public class RegisterController {
+public class UserControllerView {
 
     @GetMapping("/register")
-    public String showForm(Model model) {
+    public String registerForm(Model model) {
         User user = new User();
         model.addAttribute("user",user);
-        return "registerForm";
+        return "user/registerForm";
     }
 }
