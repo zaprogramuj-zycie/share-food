@@ -28,6 +28,6 @@ public class UserDto {
     @NotEmpty
     @NotNull
     @Length(min = 6, max = 15, message = "Invalid length password")
-    @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>]-).{6,15}")
+    @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>-]).{6,15}")
     private String password;
 }
