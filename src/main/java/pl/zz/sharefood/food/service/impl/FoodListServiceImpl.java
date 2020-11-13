@@ -21,7 +21,7 @@ import pl.zz.sharefood.food.service.FoodListService;
 public class FoodListServiceImpl implements FoodListService {
 
   private final FoodRepository foodRepository;
-
+@Override
   public PagedResponseDto<?> execute(ListPageRequest listPageRequest) {
 
     Pageable pageable = PageRequest.of(listPageRequest.getSize(), listPageRequest.getPage());
@@ -31,7 +31,7 @@ public class FoodListServiceImpl implements FoodListService {
     return PagedResponseDtoBuilder.create()
         .listFoodDto(listFoodDto)
         .foodEntityPage(listFood)
-        .build();
+        .buildListFood();
   }
 
   // todo: inject mapper
