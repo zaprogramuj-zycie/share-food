@@ -10,19 +10,20 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.lang.reflect.InvocationTargetException;
 
 import pl.zz.sharefood.food.domain.Food;
-import pl.zz.sharefood.food.service.FoodDeleteService;
 import pl.zz.sharefood.food.repository.FoodRepository;
+import pl.zz.sharefood.food.service.impl.FoodDeleteServiceImpl;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class FoodDeleteServiceTest {
+public class FoodDeleteServiceImplTest {
 
     @Mock
     private FoodRepository foodRepository;
     @InjectMocks
-    private FoodDeleteService foodDeleteService;
+    private FoodDeleteServiceImpl foodDeleteServiceImpl;
 
     @BeforeAll
     public void setUp() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {

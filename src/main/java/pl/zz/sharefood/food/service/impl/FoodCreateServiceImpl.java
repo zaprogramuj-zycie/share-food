@@ -8,19 +8,19 @@ import pl.zz.sharefood.food.mapper.FoodMapper;
 import pl.zz.sharefood.food.repository.FoodRepository;
 import pl.zz.sharefood.food.service.FoodCreateService;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class FoodCreateServiceImpl implements FoodCreateService {
 
-    private final FoodRepository foodRepository;
+  private final FoodRepository foodRepository;
 
-    private final FoodMapper foodMapper;
+  private final FoodMapper foodMapper;
 
-    @Override
-    public FoodBaseDto save(FoodBaseDto foodBaseDto) {
-        Food food = foodMapper.foodBaseDtoToFood(foodBaseDto);
-        Food save = foodRepository.save(food);
-        return foodMapper.foodToFoodBaseDto(save);
-    }
+  @Override
+  public FoodBaseDto save(FoodBaseDto foodBaseDto) {
+    Food food = foodMapper.foodBaseDtoToFood(foodBaseDto);
+    Food save = foodRepository.save(food);
+    return foodMapper.foodToFoodBaseDto(save);
+  }
 
 }

@@ -15,23 +15,23 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import pl.zz.sharefood.food.domain.Food;
 import pl.zz.sharefood.food.dto.FoodDto;
-import pl.zz.sharefood.food.service.FoodListService;
 import pl.zz.sharefood.food.repository.FoodRepository;
 import org.springframework.data.domain.PageImpl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import pl.zz.sharefood.food.service.impl.FoodListServiceImpl;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class FoodListServiceTest {
+public class FoodListServiceImplTest {
 
     @Spy
     FoodRepository foodRepository;
     @InjectMocks
-    FoodListService foodListService;
+    FoodListServiceImpl foodListServiceImpl;
 
 
     Food food;

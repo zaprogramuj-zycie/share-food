@@ -18,24 +18,24 @@ import pl.zz.sharefood.food.dto.FoodBaseDto;
 import pl.zz.sharefood.food.dto.FoodDto;
 import pl.zz.sharefood.common.dto.PagedResponseDto;
 import pl.zz.sharefood.common.request.ListPageRequest;
-import pl.zz.sharefood.food.service.FoodDeleteService;
-import pl.zz.sharefood.food.service.FoodListService;
+import pl.zz.sharefood.food.service.impl.FoodDeleteServiceImpl;
+import pl.zz.sharefood.food.service.impl.FoodListServiceImpl;
 import pl.zz.sharefood.food.service.FoodCreateService;
-import pl.zz.sharefood.food.service.FoodUpdateService;
+import pl.zz.sharefood.food.service.impl.FoodUpdateServiceImpl;
 
 @RestController
 @RequestMapping("/food")
 @RequiredArgsConstructor
 public class FoodController {
 
-  private final FoodListService foodListService;
+  private final FoodListServiceImpl foodListServiceImpl;
   private final FoodCreateService foodCreateService;
-  private final FoodUpdateService foodUpdateService;
-  private final FoodDeleteService foodDeleteService;
+  private final FoodUpdateServiceImpl foodUpdateServiceImpl;
+  private final FoodDeleteServiceImpl foodDeleteServiceImpl;
 
   @GetMapping
   public PagedResponseDto<?> listFood(@RequestParam ListPageRequest listPageRequest) {
-    return foodListService.execute(listPageRequest);
+    return foodListServiceImpl.execute(listPageRequest);
   }
 
   @PostMapping
@@ -45,12 +45,12 @@ public class FoodController {
 
   @PutMapping
   public FoodDto updateFood(@RequestBody Food food) {
-    return foodUpdateService.execute(food);
+    return foodUpdateServiceImpl.execute(food);
   }
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
   public ResponseEntity<?> deleteFood(@PathVariable Long id) {
-    return foodDeleteService.execute(id);
+    return foodDeleteServiceImpl.execute(id);
   }
 }
