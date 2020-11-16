@@ -44,8 +44,8 @@ public class FoodController {
   }
 
   @PutMapping
-  public FoodBaseDto updateFood(@RequestBody FoodBaseDto foodBaseDto) {
-    return foodUpdateServiceImpl.execute(foodBaseDto);
+  public FoodBaseDto updateFood(@RequestBody Food food) {
+    return foodUpdateServiceImpl.execute(food);
   }
 
   @DeleteMapping("/{id}")
