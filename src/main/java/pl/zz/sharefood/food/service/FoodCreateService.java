@@ -4,5 +4,5 @@ import pl.zz.sharefood.food.dto.FoodBaseDto;
 
 public interface FoodCreateService {
 
-    FoodBaseDto save(FoodBaseDto foodBaseDto);
+  FoodBaseDto save(FoodBaseDto foodBaseDto);
 }
