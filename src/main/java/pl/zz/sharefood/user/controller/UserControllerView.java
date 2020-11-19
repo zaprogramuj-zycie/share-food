@@ -14,4 +14,13 @@ public class UserControllerView {
         model.addAttribute("user",user);
         return "user/registerForm";
     }
+
+    @GetMapping("/login")
+    public String loginForm(Model model){
+        User user = new User();
+        model.addAttribute("user", user);
+        return "user/loginForm";
+    }
+
+
 }
