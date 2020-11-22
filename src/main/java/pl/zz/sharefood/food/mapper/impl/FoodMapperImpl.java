@@ -36,4 +36,5 @@ public class FoodMapperImpl implements FoodMapper {
     BeanUtils.copyProperties(listFoodDto, listFood.getContent());
     return listFoodDto;
   }
+
 }

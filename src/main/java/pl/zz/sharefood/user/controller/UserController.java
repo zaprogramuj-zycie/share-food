@@ -23,7 +23,7 @@ public class UserController {
 
   @PostMapping
   public UserDto createUser(@RequestBody UserDto userDto) {
-    return userCreateService.save(userDto);
+    return userCreateService.execute(userDto);
   }
 
   @GetMapping
