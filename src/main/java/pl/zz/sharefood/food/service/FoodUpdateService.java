@@ -1,12 +1,8 @@
 package pl.zz.sharefood.food.service;
 
-import pl.zz.sharefood.food.domain.Food;
-import pl.zz.sharefood.food.dto.FoodBaseDto;
+import pl.zz.sharefood.food.dto.FoodUpdateDto;
 
 public interface FoodUpdateService {
 
-  FoodBaseDto execute (Food food);
-
-  void updateFoodValues(Food toUpdate, Food food);
-
+  FoodUpdateDto execute(FoodUpdateDto foodUpdateDto);
 }

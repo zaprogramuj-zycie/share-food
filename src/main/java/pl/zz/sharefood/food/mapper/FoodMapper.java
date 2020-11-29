@@ -4,14 +4,21 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import pl.zz.sharefood.food.domain.Food;
 import pl.zz.sharefood.food.dto.FoodBaseDto;
-import pl.zz.sharefood.food.dto.FoodDto;
+import pl.zz.sharefood.food.dto.FoodCreateDto;
+import pl.zz.sharefood.food.dto.FoodListDto;
+import pl.zz.sharefood.food.dto.FoodUpdateDto;
 
 public interface FoodMapper {
 
-  Food foodBaseDtoToFood(FoodBaseDto foodBaseDto);
+  Food foodCreateDtoToFood(FoodCreateDto foodCreateDto);
 
-  FoodBaseDto foodToFoodBaseDto(Food food);
+  FoodCreateDto foodToFoodCreateDto(Food food);
 
-  List<FoodDto> mapFoodToDto(Page<Food> listFood);
-    
+  void foodUpdateDtoToFood(FoodUpdateDto foodUpdateDto, Food food);
+
+  FoodUpdateDto foodToFoodUpdateDto(Food food);
+
+  FoodListDto foodToFoodListDto(Food food);
+
+  List<FoodBaseDto> mapPageFoodToListFoodDto(Page<Food> listFood);
 }

@@ -4,5 +4,5 @@ import pl.zz.sharefood.user.dto.UserDto;
 
 public interface UserCreateService {
 
-    UserDto save(UserDto userDto);
+    UserDto execute(UserDto userDto);
 }
