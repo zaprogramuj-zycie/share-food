@@ -10,8 +10,8 @@ import pl.zz.sharefood.user.mapper.UserMapper;
 import pl.zz.sharefood.user.repository.UserRepository;
 import pl.zz.sharefood.user.service.UserCreateService;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class UserCreateServiceImpl implements UserCreateService {
 
   private final UserRepository userRepository;
@@ -24,13 +24,12 @@ public class UserCreateServiceImpl implements UserCreateService {
     return userMapper.userToUserDto(savedUser);
   }
 
-
-  private User save(UserDto userDto) {
-    return userRepository.save(userMapper.userDtoToUser(userDto));
-  }
-
   private void modifyUserDtoData(UserDto userDto) {
     userDto.setPassword(encoder.encode(userDto.getPassword()));
     userDto.setCreatedAt(new Date());
+  }
+
+  private User save(UserDto userDto) {
+    return userRepository.save(userMapper.userDtoToUser(userDto));
   }
 }

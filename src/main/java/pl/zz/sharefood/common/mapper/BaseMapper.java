@@ -1,20 +1,11 @@
 package pl.zz.sharefood.common.mapper;
 
-import java.util.List;
-import org.springframework.data.domain.Page;
-import pl.zz.sharefood.food.domain.Food;
-import pl.zz.sharefood.food.dto.FoodBaseDto;
-import pl.zz.sharefood.food.dto.FoodDto;
+import org.springframework.beans.BeanUtils;
 
-public interface BaseMapper {
+public class BaseMapper {
 
-  <B, R> R remapObjects(B base, R result);
-
-  Food foodBaseDtoToFood(FoodBaseDto foodBaseDto);
-
-  FoodBaseDto foodToFoodBaseDto(Food food);
-
-  List<FoodDto> mapFoodToFoodDtoList(Page<Food> listFood);
-
-
+  public <B, R> R remapObject(B base, R result) {
+    BeanUtils.copyProperties(base, result);
+    return result;
+  }
 }
