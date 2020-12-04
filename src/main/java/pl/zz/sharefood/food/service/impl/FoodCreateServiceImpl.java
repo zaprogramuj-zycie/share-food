@@ -1,9 +1,10 @@
 package pl.zz.sharefood.food.service.impl;
 
+import java.util.Date;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.zz.sharefood.food.domain.Food;
-import pl.zz.sharefood.food.dto.FoodBaseDto;
+import pl.zz.sharefood.food.dto.FoodCreateDto;
 import pl.zz.sharefood.food.mapper.FoodMapper;
 import pl.zz.sharefood.food.repository.FoodRepository;
 import pl.zz.sharefood.food.service.FoodCreateService;
@@ -13,14 +14,19 @@ import pl.zz.sharefood.food.service.FoodCreateService;
 public class FoodCreateServiceImpl implements FoodCreateService {
 
   private final FoodRepository foodRepository;
-
   private final FoodMapper foodMapper;
 
   @Override
-  public FoodBaseDto save(FoodBaseDto foodBaseDto) {
-    Food food = foodMapper.foodBaseDtoToFood(foodBaseDto);
+  public FoodCreateDto save(FoodCreateDto foodCreateDto) {
+    Food food = prepareAndGetFood(foodCreateDto);
     Food save = foodRepository.save(food);
-    return foodMapper.foodToFoodBaseDto(save);
+    return foodMapper.foodToFoodCreateDto(save);
+  }
+
+  private Food prepareAndGetFood(FoodCreateDto foodCreateDto) {
+    Food food = foodMapper.foodCreateDtoToFood(foodCreateDto);
+    food.setCreatedAt(new Date());
+    return food;
   }
 
 }

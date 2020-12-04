@@ -5,7 +5,7 @@ import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import pl.zz.sharefood.exception.ResourceNotFoundException;
+import pl.zz.sharefood.common.exception.ResourceNotFoundException;
 import pl.zz.sharefood.food.domain.Food;
 import pl.zz.sharefood.food.repository.FoodRepository;
 import pl.zz.sharefood.food.service.FoodDeleteService;

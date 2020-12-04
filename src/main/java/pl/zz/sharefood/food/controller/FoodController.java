@@ -10,47 +10,45 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.zz.sharefood.food.domain.Food;
-import pl.zz.sharefood.food.dto.FoodBaseDto;
-import pl.zz.sharefood.food.dto.FoodDto;
 import pl.zz.sharefood.common.dto.PagedResponseDto;
 import pl.zz.sharefood.common.request.ListPageRequest;
-import pl.zz.sharefood.food.service.impl.FoodDeleteServiceImpl;
-import pl.zz.sharefood.food.service.impl.FoodListServiceImpl;
+import pl.zz.sharefood.food.dto.FoodCreateDto;
+import pl.zz.sharefood.food.dto.FoodUpdateDto;
 import pl.zz.sharefood.food.service.FoodCreateService;
-import pl.zz.sharefood.food.service.impl.FoodUpdateServiceImpl;
+import pl.zz.sharefood.food.service.FoodDeleteService;
+import pl.zz.sharefood.food.service.FoodListService;
+import pl.zz.sharefood.food.service.FoodUpdateService;
 
 @RestController
 @RequestMapping("/food")
 @RequiredArgsConstructor
 public class FoodController {
 
-  private final FoodListServiceImpl foodListServiceImpl;
+  private final FoodListService foodListService;
   private final FoodCreateService foodCreateService;
-  private final FoodUpdateServiceImpl foodUpdateServiceImpl;
-  private final FoodDeleteServiceImpl foodDeleteServiceImpl;
+  private final FoodUpdateService foodUpdateService;
+  private final FoodDeleteService foodDeleteService;
 
   @GetMapping
-  public PagedResponseDto<?> listFood(@RequestParam ListPageRequest listPageRequest) {
-    return foodListServiceImpl.execute(listPageRequest);
+  public PagedResponseDto<?> listFood(ListPageRequest listPageRequest) {
+    return foodListService.execute(listPageRequest);
   }
 
   @PostMapping
-  public FoodBaseDto createFood(@RequestBody FoodBaseDto foodBaseDto) {
-    return foodCreateService.save(foodBaseDto);
+  public FoodCreateDto createFood(@RequestBody FoodCreateDto foodCreateDto) {
+    return foodCreateService.save(foodCreateDto);
   }
 
   @PutMapping
-  public FoodBaseDto updateFood(@RequestBody Food food) {
-    return foodUpdateServiceImpl.execute(food);
+  public FoodUpdateDto updateFood(@RequestBody FoodUpdateDto foodUpdateDto) {
+    return foodUpdateService.execute(foodUpdateDto);
   }
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
   public ResponseEntity<?> deleteFood(@PathVariable Long id) {
-    return foodDeleteServiceImpl.execute(id);
+    return foodDeleteService.execute(id);
   }
 }
